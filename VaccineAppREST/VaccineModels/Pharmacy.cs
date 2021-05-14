@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VaccineModels
 {
+    /// <summary>
+    /// The location where the covid vaccine is being administered
+    /// </summary>
     public class Pharmacy
     {
         //Fields

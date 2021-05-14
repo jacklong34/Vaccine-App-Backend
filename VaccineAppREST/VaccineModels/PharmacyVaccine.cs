@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VaccineModels
 {
+    /// <summary>
+    /// Used to model the m:m relationship b/w Pharmacy and Vaccine
+    /// </summary>
     public class PharmacyVaccine
     {
         //Fields

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VaccineModels
 {
+    /// <summary>
+    /// Has a date, pharmacy, customer, and vaccine 
+    /// </summary>
     public class Appointment
     {
         //Fields

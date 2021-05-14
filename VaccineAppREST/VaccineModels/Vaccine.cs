@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VaccineModels
 {
+    /// <summary>
+    /// The specific kind of vaccine being administered
+    /// </summary>
     public class Vaccine
     {
         //Fields

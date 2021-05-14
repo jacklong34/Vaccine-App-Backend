@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VaccineModels
 {
+    /// <summary>
+    /// The person registering for their covid vaccine/user of the system
+    /// </summary>
     public class Patient
     {
         //Fields
