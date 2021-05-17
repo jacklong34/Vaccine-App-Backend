@@ -8,4 +8,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VaccineBL\VaccineBL.csproj" />
+    <ProjectReference Include="..\VaccineDL\VaccineDL.csproj" />
+    <ProjectReference Include="..\VaccineModels\VaccineModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>

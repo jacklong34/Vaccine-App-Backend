@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VaccineDL;
 
 namespace VaccineREST
 {
@@ -32,6 +33,21 @@ namespace VaccineREST
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "VaccineREST", Version = "v1" });
             });
+            //Cors Policy
+            services.AddCors(
+                options =>
+                {
+                    options.AddDefaultPolicy(
+                        builder =>
+                        {
+                            builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                        });
+                });
+
+            //Dependencies
+            services.AddScoped<IVaccineRepoDB, VaccineRepoDB>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +59,13 @@ namespace VaccineREST
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VaccineREST v1"));
             }
+
+            app.UseCors(x =>
+            x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            );
 
             app.UseHttpsRedirection();
 
