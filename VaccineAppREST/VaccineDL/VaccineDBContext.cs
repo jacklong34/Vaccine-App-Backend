@@ -26,10 +26,18 @@ namespace VaccineDL
         public DbSet<Vaccine> Vaccine { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //PharmacyVaccine PK
+            //Set Primary Keys
             modelBuilder.Entity<PharmacyVaccine>()
                 .HasKey(k => new { k.PharmId, k.VacId })
                 .HasName("PK_PharmacyVaccine");
+            modelBuilder.Entity<Appointment>()
+                .HasKey(k => k.AppId);
+            modelBuilder.Entity<Patient>()
+                .HasKey(k => k.PatientId);
+            modelBuilder.Entity<Pharmacy>()
+                .HasKey(k => k.PharmId);
+            modelBuilder.Entity<Vaccine>()
+                .HasKey(k => k.VacId);
 
             //PharmacyVaccine FK
             modelBuilder.Entity<PharmacyVaccine>()
