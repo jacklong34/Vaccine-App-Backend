@@ -12,25 +12,20 @@ namespace VaccineModels
     public class Patient
     {
         //Fields
-        private int patientID;
+        private int patientId;
         private string firstName;
         private string lastName;
         private string phoneNumber;
         private DateTime dob;
         private string username;
         private string password;
-
-        //Constructor(s)
-        public Patient()
-        {
-
-        }
+        private ICollection<Appointment> appointments;
 
         //Properties
-        public int PatientID
+        public int PatientId
         {
-            get { return this.patientID; }
-            set { this.patientID = value; }
+            get { return this.patientId; }
+            set { this.patientId = value; }
         }
         public string FirstName
         {
@@ -61,6 +56,11 @@ namespace VaccineModels
         {
             get { return this.password; }
             set { this.password = value; }
+        }
+        public ICollection<Appointment> Appointments
+        {
+            get { return this.appointments; }
+            set { this.appointments = value; }
         }
 
     }

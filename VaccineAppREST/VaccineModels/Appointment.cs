@@ -12,37 +12,62 @@ namespace VaccineModels
     public class Appointment
     {
         //Fields
-        private int appID;
+        private int appId;
         private DateTime date;
-        private int pharmID;
-        private int patientID;
-        private int vacID;
+        private int pharmId;
+        private int? patientId;
+        private int vacId;
+        private Pharmacy pharmacy;
+        private Patient patient;
+        private Vaccine vaccine;
 
         //Properties
-        public int AppID
+        public int AppId
         {
-            get { return this.appID; }
-            set { this.appID = value; }
+            get { return this.appId; }
+            set { this.appId = value; }
         }
         public DateTime Date
         {
             get { return this.date; }
             set { this.date = value; }
         }
-        public int PharmID
+        public int PharmId
         {
-            get { return this.pharmID; }
-            set { this.pharmID = value; }
+            get { return this.pharmId; }
+            set { this.pharmId = value; }
         }
-        public int PatientID
+        public int PatientId
         {
-            get { return this.patientID; }
-            set { this.patientID = value; }
+            get
+            {
+                if(this.patientId.HasValue)
+                {
+                    return this.patientId.Value;
+                }
+                return -1;
+            }
+            set { this.patientId = value; }
         }
-        public int VacID
+        public int VacId
         {
-            get { return this.vacID; }
-            set { this.vacID = value; }
+            get { return this.vacId; }
+            set { this.vacId = value; }
+        }
+        public Pharmacy Pharmacy
+        {
+            get { return this.pharmacy; }
+            set { this.pharmacy = value; }
+        }
+        public Patient Patient
+        {
+            get { return this.patient; }
+            set { this.patient = value; }
+        }
+        public Vaccine Vaccine
+        {
+            get { return this.vaccine; }
+            set { this.vaccine = value; }
         }
     }
 }

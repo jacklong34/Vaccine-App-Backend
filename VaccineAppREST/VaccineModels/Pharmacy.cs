@@ -12,18 +12,20 @@ namespace VaccineModels
     public class Pharmacy
     {
         //Fields
-        private int pharmID;
+        private int pharmId;
         private string name;
         private string state;
         private string city;
         private string street;
         private int zip;
+        private ICollection<Appointment> appointments;
+        private ICollection<PharmacyVaccine> pharmacyVaccines;
 
         //Properties
-        public int PharmID
+        public int PharmId
         {
-            get { return this.pharmID; }
-            set { this.pharmID = value; }
+            get { return this.pharmId; }
+            set { this.pharmId = value; }
         }
         public string Name
         {
@@ -49,6 +51,16 @@ namespace VaccineModels
         {
             get { return this.zip; }
             set { this.zip = value; }
+        }
+        public ICollection<Appointment> Appointments
+        {
+            get { return this.appointments; }
+            set { this.appointments = value; }
+        }
+        public ICollection<PharmacyVaccine> PharmacyVaccines
+        {
+            get { return this.pharmacyVaccines; }
+            set { this.pharmacyVaccines = value; }
         }
     }
 }

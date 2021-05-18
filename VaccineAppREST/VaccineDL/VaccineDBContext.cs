@@ -26,19 +26,48 @@ namespace VaccineDL
         public DbSet<Vaccine> Vaccine { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //PharmacyVaccine PK
+            modelBuilder.Entity<PharmacyVaccine>()
+                .HasKey(k => new { k.PharmId, k.VacId })
+                .HasName("PK_PharmacyVaccine");
+
+            //PharmacyVaccine FK
+            modelBuilder.Entity<PharmacyVaccine>()
+                .HasOne(x => x.Pharmacy)
+                .WithMany(y => y.PharmacyVaccines)
+                .HasForeignKey(x => x.PharmId);
+            modelBuilder.Entity<PharmacyVaccine>()
+                .HasOne(x => x.Vaccine)
+                .WithMany(y => y.PharmacyVaccines)
+                .HasForeignKey(x => x.VacId);
+
             //Auto increment ID's when new model is added to DB
             modelBuilder.Entity<Appointment>()
-                .Property(x => x.AppID)
+                .Property(x => x.AppId)
                 .ValueGeneratedOnAdd();
             modelBuilder.Entity<Patient>()
-                .Property(x => x.PatientID)
+                .Property(x => x.PatientId)
                 .ValueGeneratedOnAdd();
             modelBuilder.Entity<Pharmacy>()
-                .Property(x => x.PharmID)
+                .Property(x => x.PharmId)
                 .ValueGeneratedOnAdd();
             modelBuilder.Entity<Vaccine>()
-                .Property(x => x.VacID)
+                .Property(x => x.VacId)
                 .ValueGeneratedOnAdd();
+
+            //Foreign Key Relationships
+            modelBuilder.Entity<Appointment>()
+                .HasOne(x => x.Patient)
+                .WithMany(y => y.Appointments)
+                .HasForeignKey(x => x.PatientId);
+            modelBuilder.Entity<Appointment>()
+                .HasOne(x => x.Vaccine)
+                .WithMany(y => y.Appointments)
+                .HasForeignKey(x => x.VacId);
+            modelBuilder.Entity<Appointment>()
+                .HasOne(x => x.Pharmacy)
+                .WithMany(y => y.Appointments)
+                .HasForeignKey(x => x.PharmId);
         }
     }
 }

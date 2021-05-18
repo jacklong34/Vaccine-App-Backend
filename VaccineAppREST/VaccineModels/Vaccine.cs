@@ -12,16 +12,18 @@ namespace VaccineModels
     public class Vaccine
     {
         //Fields
-        private int vacID;
+        private int vacId;
         private string name;
         private string company;
         private int doses;
+        private ICollection<Appointment> appointments;
+        private ICollection<PharmacyVaccine> pharmacyVaccines;
 
         //Properties
-        public int VacID
+        public int VacId
         {
-            get { return this.vacID; }
-            set { this.vacID = value; }
+            get { return this.vacId; }
+            set { this.vacId = value; }
         }
         public string Name
         {
@@ -37,6 +39,16 @@ namespace VaccineModels
         { 
             get { return this.doses; }
             set { this.doses = value; }
+        }
+        public ICollection<Appointment> Appointments
+        {
+            get { return this.appointments; }
+            set { this.appointments = value; }
+        }
+        public ICollection<PharmacyVaccine> PharmacyVaccines
+        {
+            get { return this.pharmacyVaccines; }
+            set { this.pharmacyVaccines = value; }
         }
     }
 }

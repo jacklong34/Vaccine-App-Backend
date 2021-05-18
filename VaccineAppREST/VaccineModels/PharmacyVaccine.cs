@@ -12,25 +12,37 @@ namespace VaccineModels
     public class PharmacyVaccine
     {
         //Fields
-        private int pharmID;
-        private int vacID;
+        private int pharmId;
+        private int vacId;
         private int quantity;
+        private Pharmacy pharmacy;
+        private Vaccine vaccine;
 
         //Properties
-        public int PharmID
+        public int PharmId
         {
-            get { return this.pharmID; }
-            set { this.pharmID = value; }
+            get { return this.pharmId; }
+            set { this.pharmId = value; }
         }
-        public int VacID
+        public int VacId
         {
-            get { return this.vacID; }
-            set { this.vacID = value; }
+            get { return this.vacId; }
+            set { this.vacId = value; }
         }
         public int Quantity
         {
             get { return this.quantity; }
             set { this.quantity = value; }
+        }
+        public Pharmacy Pharmacy
+        {
+            get { return this.pharmacy; }
+            set { this.pharmacy = value; }
+        }
+        public Vaccine Vaccine
+        {
+            get { return this.vaccine; }
+            set { this.vaccine = value; }
         }
     }
 }
