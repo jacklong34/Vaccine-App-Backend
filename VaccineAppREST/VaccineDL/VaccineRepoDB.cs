@@ -29,12 +29,12 @@ namespace VaccineDL
         {
             return await _context.Appointment
                 .AsNoTracking()
-                .Where(x => x.AppID == appID)
+                .Where(x => x.AppId == appID)
                 .FirstOrDefaultAsync();
         }
         public async Task<Appointment> UpdateAppointmentAsync(Appointment appointment2BUpdated)
         {
-            Appointment oldAppointment = await _context.Appointment.Where(x => x.AppID == appointment2BUpdated.AppID).FirstOrDefaultAsync();
+            Appointment oldAppointment = await _context.Appointment.Where(x => x.AppId == appointment2BUpdated.AppId).FirstOrDefaultAsync();
             _context.Entry(oldAppointment).CurrentValues.SetValues(appointment2BUpdated);
             await _context.SaveChangesAsync();
             _context.ChangeTracker.Clear();
@@ -58,12 +58,12 @@ namespace VaccineDL
         {
             return await _context.Patient
                 .AsNoTracking()
-                .Where(x => x.PatientID == patientID)
+                .Where(x => x.PatientId == patientID)
                 .FirstOrDefaultAsync();
         }
         public async Task<Patient> UpdatePatientAsync(Patient patient2BUpdated)
         {
-            Patient oldPatient = await _context.Patient.Where(x => x.PatientID == patient2BUpdated.PatientID).FirstOrDefaultAsync();
+            Patient oldPatient = await _context.Patient.Where(x => x.PatientId == patient2BUpdated.PatientId).FirstOrDefaultAsync();
             _context.Entry(oldPatient).CurrentValues.SetValues(patient2BUpdated);
             await _context.SaveChangesAsync();
             _context.ChangeTracker.Clear();
@@ -86,12 +86,12 @@ namespace VaccineDL
         {
             return await _context.Pharmacy
                 .AsNoTracking()
-                .Where(x => x.PharmID == pharmID)
+                .Where(x => x.PharmId == pharmID)
                 .FirstOrDefaultAsync();
         }
         public async Task<Pharmacy> UpdatePharmacyAsync(Pharmacy pharmacy2BUpdated)
         {
-            Pharmacy oldPharmacy = await _context.Pharmacy.Where(x => x.PharmID == pharmacy2BUpdated.PharmID).FirstOrDefaultAsync();
+            Pharmacy oldPharmacy = await _context.Pharmacy.Where(x => x.PharmId == pharmacy2BUpdated.PharmId).FirstOrDefaultAsync();
             _context.Entry(oldPharmacy).CurrentValues.SetValues(pharmacy2BUpdated);
             await _context.SaveChangesAsync();
             _context.ChangeTracker.Clear();
@@ -114,13 +114,13 @@ namespace VaccineDL
         {
             return await _context.PharmacyVaccine
                 .AsNoTracking()
-                .Where(x => x.PharmID == pharmID && x.VacID == vacID)
+                .Where(x => x.PharmId == pharmID && x.VacId == vacID)
                 .FirstOrDefaultAsync();
         }
         public async Task<PharmacyVaccine> UpdatePharmacyVaccineAsync(PharmacyVaccine pharmacyVaccine2BUpdated)
         {
-            PharmacyVaccine oldPharmacyVaccine = await _context.PharmacyVaccine.Where(x => x.PharmID == pharmacyVaccine2BUpdated.PharmID
-            && x.VacID == pharmacyVaccine2BUpdated.VacID).FirstOrDefaultAsync();
+            PharmacyVaccine oldPharmacyVaccine = await _context.PharmacyVaccine.Where(x => x.PharmId == pharmacyVaccine2BUpdated.PharmId
+            && x.VacId == pharmacyVaccine2BUpdated.VacId).FirstOrDefaultAsync();
             _context.Entry(oldPharmacyVaccine).CurrentValues.SetValues(pharmacyVaccine2BUpdated);
             await _context.SaveChangesAsync();
             _context.ChangeTracker.Clear();
@@ -143,12 +143,12 @@ namespace VaccineDL
         {
             return await _context.Vaccine
                 .AsNoTracking()
-                .Where(x => x.VacID == vacID)
+                .Where(x => x.VacId == vacID)
                 .FirstOrDefaultAsync();
         }
         public async Task<Vaccine> UpdateVaccineAsync(Vaccine vaccine2Update)
         {
-            Vaccine oldVaccine = await _context.Vaccine.Where(x => x.VacID == vaccine2Update.VacID).FirstOrDefaultAsync();
+            Vaccine oldVaccine = await _context.Vaccine.Where(x => x.VacId == vaccine2Update.VacId).FirstOrDefaultAsync();
             _context.Entry(oldVaccine).CurrentValues.SetValues(vaccine2Update);
             await _context.SaveChangesAsync();
             _context.ChangeTracker.Clear();
