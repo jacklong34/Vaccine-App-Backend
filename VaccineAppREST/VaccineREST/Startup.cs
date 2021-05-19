@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VaccineBL;
 using VaccineDL;
 
 namespace VaccineREST
@@ -50,6 +51,7 @@ namespace VaccineREST
             //Dependencies
             services.AddDbContext<VaccineDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("VaccineDB")));
             services.AddScoped<IVaccineRepoDB, VaccineRepoDB>();
+            services.AddScoped<IVacBL, VacBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
