@@ -20,6 +20,7 @@ namespace VaccineBL
         Task<Patient> GetPatientByIDAsync(int patientID);
         Task<Patient> UpdatePatientAsync(Patient patient2BUpdated);
         Task<Patient> DeletePatientAsync(Patient patient2BDeleted);
+        Task<Patient> GetPatientByUsernameAsync(string username);
 
         //Pharmacy CRUD Methods
         Task<Pharmacy> AddPharmacyAsync(Pharmacy pharmacy2Add);

@@ -75,6 +75,13 @@ namespace VaccineDL
             await _context.SaveChangesAsync();
             return patient2BDeleted;
         }
+        public async Task<Patient> GetPatientByUsernameAsync(string username)
+        {
+            return await _context.Patient
+                .AsNoTracking()
+                .Where(x => x.Username == username)
+                .FirstOrDefaultAsync();
+        }
         //Pharmacy CRUD Methods
         public async Task<Pharmacy> AddPharmacyAsync(Pharmacy pharmacy2Add)
         {

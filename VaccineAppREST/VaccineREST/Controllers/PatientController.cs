@@ -39,7 +39,16 @@ namespace VaccineREST.Controllers
             if (patient == null) return NotFound();
             return Ok(patient);
         }
-
+        // GET api/<PatientController>/username/email@email.com
+        [HttpGet]
+        [Route("/api/Patient/username/{username}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetPatientByUsernameAsync(string username)
+        {
+            var patient = await _vacBL.GetPatientByUsernameAsync(username);
+            if (patient == null) return NotFound();
+            return Ok(patient);
+        }
         // POST api/<PatientController>
         [HttpPost]
         [Consumes("application/json")]

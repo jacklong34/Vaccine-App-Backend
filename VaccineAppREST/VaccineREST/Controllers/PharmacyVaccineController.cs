@@ -31,14 +31,14 @@ namespace VaccineREST.Controllers
         }
 
         // GET api/<PharmacyVaccineController>/5
-        [HttpGet("{pharmId/vacId}")]
-        [Produces("application/json")]
-        public async Task<IActionResult> GetPharmacyVaccineById(int pharmId, int vacId)
-        {
-            var pharmacyVaccine = await _vacBL.GetPharmacyVaccineAsync(pharmId, vacId);
-            if (pharmacyVaccine == null) return NotFound();
-            return Ok(pharmacyVaccine);
-        }
+        //[HttpGet("{pharmId/vacId}")]
+        //[Produces("application/json")]
+        //public async Task<IActionResult> GetPharmacyVaccineById(int pharmId, int vacId)
+        //{
+        //    var pharmacyVaccine = await _vacBL.GetPharmacyVaccineAsync(pharmId, vacId);
+        //    if (pharmacyVaccine == null) return NotFound();
+        //    return Ok(pharmacyVaccine);
+        //}
 
         // POST api/<PharmacyVaccineController>
         [HttpPost]
@@ -57,33 +57,33 @@ namespace VaccineREST.Controllers
         }
 
         // PUT api/<PharmacyVaccineController>/5
-        [HttpPut("{pharmId/vacId}")]
-        public async Task<IActionResult> UpdatePharmacyVaccineAsync(int pharmId, int vacId, [FromBody] PharmacyVaccine pharmacyVaccine)
-        {
-            try
-            {
-                await _vacBL.UpdatePharmacyVaccineAsync(pharmacyVaccine);
-                return NoContent();
-            }
-            catch
-            {
-                return StatusCode(500);
-            }
-        }
+        //[HttpPut("{pharmId/vacId}")]
+        //public async Task<IActionResult> UpdatePharmacyVaccineAsync(int pharmId, int vacId, [FromBody] PharmacyVaccine pharmacyVaccine)
+        //{
+        //    try
+        //    {
+        //        await _vacBL.UpdatePharmacyVaccineAsync(pharmacyVaccine);
+        //        return NoContent();
+        //    }
+        //    catch
+        //    {
+        //        return StatusCode(500);
+        //    }
+        //}
 
         // DELETE api/<PharmacyVaccineController>/5
-        [HttpDelete("{pharmId/vacId}")]
-        public async Task<IActionResult> DeletePharmacyVaccineAsync(int pharmId, int vacId)
-        {
-            try
-            {
-                await _vacBL.DeletePharmacyVaccineAsync(await _vacBL.GetPharmacyVaccineAsync(pharmId, vacId));
-                return NoContent();
-            }
-            catch
-            {
-                return StatusCode(500);
-            }
-        }
+        //[HttpDelete("{pharmId/vacId}")]
+        //public async Task<IActionResult> DeletePharmacyVaccineAsync(int pharmId, int vacId)
+        //{
+        //    try
+        //    {
+        //        await _vacBL.DeletePharmacyVaccineAsync(await _vacBL.GetPharmacyVaccineAsync(pharmId, vacId));
+        //        return NoContent();
+        //    }
+        //    catch
+        //    {
+        //        return StatusCode(500);
+        //    }
+        //}
     }
 }

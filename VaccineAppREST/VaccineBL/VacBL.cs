@@ -53,6 +53,20 @@ namespace VaccineBL
         {
             return await _repo.DeletePatientAsync(patient2BDeleted);
         }
+        public async Task<Patient> GetPatientByUsernameAsync(string username)
+        {
+            Patient patient2Return = await _repo.GetPatientByUsernameAsync(username);
+            if(patient2Return == null)
+            {
+                patient2Return = new Patient();
+                patient2Return.Username = username;
+                return await _repo.AddPatientAsync(patient2Return);
+            }
+            else
+            {
+                return patient2Return;
+            }
+        }
 
         //Pharmacy BL
         public async Task<Pharmacy> AddPharmacyAsync(Pharmacy pharmacy2Add)
